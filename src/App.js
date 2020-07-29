@@ -1,24 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Nav from './components/Nav'
+import './style.css'
+import dadosInicial from './data/dados_iniciais.json'
+import Banner from './components/BannerMain'
+import Carousel from './components/Carousel'
+import Footer from './components/Footer'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ background: "#141414" }}>
+       <Nav/>
+       <Banner 
+       url={dadosInicial.categorias[0].videos[0].url} 
+       videoTitle={dadosInicial.categorias[0].videos[0].titulo}
+       videoDescription={"O que é Front-end? Trabalhando na área os termos HTML, CSS e JavaScript fazem parte da rotina das desenvolvedoras e desenvolvedores. Mas o que eles fazem, afinal? Descubra com a Vanessa!"}
+       />
+       <Carousel ignoreFirstVideo category={dadosInicial.categorias[0]}/>
+       <Carousel category={dadosInicial.categorias[1]}/>
+       <Carousel category={dadosInicial.categorias[2]}/>
+       <Carousel category={dadosInicial.categorias[3]}/>
+       <Carousel category={dadosInicial.categorias[4]}/>
+       <Carousel category={dadosInicial.categorias[5]}/>
+       <Footer/>
     </div>
   );
 }
