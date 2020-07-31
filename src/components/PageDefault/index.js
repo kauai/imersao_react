@@ -1,11 +1,11 @@
-import React from "react";
-import Menu from '../Nav'
-import Footer from '../Footer'
+import React from 'react';
+import Menu from '../Nav';
+import Footer from '../Footer';
 
 function PageDefault({ children }) {
   return (
     <>
-      <div style={{ background: "#141414" }}>
+      <div style={{ background: '#141414', display: 'flex', flexDirection: 'column' }}>
         <Menu />
         {children}
         <Footer />
@@ -14,4 +14,4 @@ function PageDefault({ children }) {
   );
 }
 
-export default PageDefault
+export default PageDefault;

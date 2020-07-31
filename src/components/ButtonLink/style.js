@@ -1,4 +1,4 @@
-import styled  from 'styled-components'
+import styled from 'styled-components';
 
 export const Button = styled.button`
     color: var(--white);
@@ -30,4 +30,4 @@ export const Button = styled.button`
       border: 0;
       text-align: center;
     }
-`
+`;

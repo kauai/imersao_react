@@ -38,7 +38,6 @@ export const SliderItem = styled.li`
   }
 `;
 
-
 export const Slider = ({ children }) => (
   <Container>
     <SlickSlider {...{
