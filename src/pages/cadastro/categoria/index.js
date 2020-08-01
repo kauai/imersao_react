@@ -42,7 +42,9 @@ function CadastroCategoria() {
   useEffect(() => {
     if (window.location.href.includes('localhost')) {
       // const URL = 'http://localhost:3001/categorias';
-      const URL = 'https://alura-flix20.herokuapp.com/categorias';
+      const URL = (window.location.hostname === 'localhost')
+        ? 'http://localhost:8080/categorias'
+        : 'https://alura-flix20.herokuapp.com/categorias';
       // changes made by me
       (async () => {
         try {
