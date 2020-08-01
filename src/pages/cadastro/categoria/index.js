@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { SketchPicker, BlockPicker, CirclePicker } from 'react-color';
+// import { SketchPicker, BlockPicker, CirclePicker } from 'react-color';
 import FormField from '../../../components/FormField';
 
 const Main = styled.main`
@@ -29,41 +29,27 @@ function CadastroCategoria() {
   }
 
   function handleChange(e) {
-    // console.log(e.target.getAttribute('name'))
-    console.log(e);
-    // setValue(
-    //   e.target.getAttribute('name'),
-    //   e.target.value,
-    // );
+    setValue(
+      e.target.getAttribute('name'),
+      e.target.value,
+    );
   }
 
   // ============
 
   useEffect(() => {
     if (window.location.href.includes('localhost')) {
-      // const URL = 'http://localhost:3001/categorias';
       const URL = (window.location.hostname === 'localhost')
         ? 'http://localhost:8080/categorias'
         : 'https://alura-flix20.herokuapp.com/categorias';
-      // changes made by me
       (async () => {
         try {
           const result = await (await fetch(URL)).json();
-          // setCategorias(JSON.parse(JSON.stringify(result)));
           setCategorias(result);
         } catch (error) {
           throw new Error('Não foi possível pegar os dados');
         }
       })();
-      // fetch(URL)
-      //   .then(async (res) => {
-      //     if (res.ok) {
-      //       const result = await res.json();
-      //       setCategorias(result);
-      //       return;
-      //     }
-      //     throw new Error('Não foi possível pegar os dados');
-      //   });
     }
   }, []);
 
@@ -100,21 +86,6 @@ function CadastroCategoria() {
           value={values.descricao}
           onChange={handleChange}
         />
-        {/* <div>
-          <label>
-            Descrição:
-            <textarea
-              type="text"
-              value={values.descricao}
-              name="descricao"
-              onChange={handleChange}
-            />
-          </label>
-        </div> */}
-
-        {/* <SketchPicker /> */}
-        {/* <BlockPicker /> */}
-        {/* <CirclePicker style={{ marginBottom: '50px' }} onChange={handleChange} /> */}
 
         <FormField
           label="Cor"
@@ -123,17 +94,6 @@ function CadastroCategoria() {
           value={values.cor}
           onChange={handleChange}
         />
-        {/* <div>
-          <label>
-            Cor:
-            <input
-              type="color"
-              value={values.cor}
-              name="cor"
-              onChange={handleChange}
-            />
-          </label>
-        </div> */}
 
         <button
           type="submit"
@@ -150,7 +110,6 @@ function CadastroCategoria() {
           Cadastrar
         </button>
       </form>
-      {/* {JSON.stringify(categorias)} */}
 
       <ul style={{ listStyle: 'none' }}>
         {categorias.map((categoria, indice) => (
