@@ -12,10 +12,10 @@ function useForm(valoresIniciais) {
     });
   }
 
-  function handleChange(infosDoEvento) {
+  function handleChange(e) {
     setValue(
-      infosDoEvento.target.getAttribute('name'),
-      infosDoEvento.target.value,
+      e.target.getAttribute('name'),
+      e.target.value,
     );
   }
 
@@ -23,11 +23,11 @@ function useForm(valoresIniciais) {
     setValues(valoresIniciais);
   }
 
-  return {
+  return [
     values,
     handleChange,
     clearForm,
-  };
+  ];
 }
 
 export default useForm;

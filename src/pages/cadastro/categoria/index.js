@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 // import { SketchPicker, BlockPicker, CirclePicker } from 'react-color';
 import FormField from '../../../components/FormField';
+import useForm from '../../../hooks/useForm';
 
 const Main = styled.main`
    margin-top:100px;
@@ -17,23 +18,9 @@ function CadastroCategoria() {
     descricao: '',
     cor: '',
   };
+
+  const [values, handleChange, clearForm] = useForm(valoresIniciais);
   const [categorias, setCategorias] = useState([]);
-  const [values, setValues] = useState(valoresIniciais);
-
-  function setValue(chave, valor) {
-    // chave: nome, descricao, bla, bli
-    setValues({
-      ...values,
-      [chave]: valor, // nome: 'valor'
-    });
-  }
-
-  function handleChange(e) {
-    setValue(
-      e.target.getAttribute('name'),
-      e.target.value,
-    );
-  }
 
   // ============
 
@@ -67,7 +54,7 @@ function CadastroCategoria() {
           return;
         }
         setCategorias([...categorias, values]);
-        setValues(valoresIniciais);
+        clearForm(valoresIniciais);
       }}
       >
 
